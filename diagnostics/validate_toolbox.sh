@@ -74,7 +74,7 @@ fi
 
 printf '== Configuration ==\n'
 if [[ -f "$CONFIG_FILE" ]]; then
-  if ! "$ROOT/config/validate_toolbox_config.sh" --config "$CONFIG_FILE"; then
+  if ! bash "$ROOT/config/validate_toolbox_config.sh" --config "$CONFIG_FILE"; then
     failures=$((failures + 1))
   fi
 else
@@ -84,7 +84,7 @@ fi
 if ((RUN_SHELLCHECK)); then
   printf '== ShellCheck ==\n'
   if command -v shellcheck >/dev/null 2>&1; then
-    "$ROOT/diagnostics/lint_shell_scripts.sh" --root "$ROOT" || failures=$((failures + 1))
+    bash "$ROOT/diagnostics/lint_shell_scripts.sh" --root "$ROOT" || failures=$((failures + 1))
   else
     printf 'shellcheck unavailable\n' >&2
     warnings=$((warnings + 1))
