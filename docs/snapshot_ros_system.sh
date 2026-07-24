@@ -29,10 +29,10 @@ while (($#)); do
 done
 
 mkdir -p "$OUTPUT"
-"$SCRIPT_ROOT/diagnostics/collect_ros_diagnostics.sh" --output "$OUTPUT/ros"
+bash "$SCRIPT_ROOT/diagnostics/collect_ros_diagnostics.sh" --output "$OUTPUT/ros"
 
 if ((INCLUDE_ROBOT)); then
-  "$SCRIPT_ROOT/diagnostics/collect_robot_diagnostics.sh" \
+  bash "$SCRIPT_ROOT/diagnostics/collect_robot_diagnostics.sh" \
     --output "$OUTPUT/robot" \
     --joint-states "$JOINT_STATES" \
     --manager "$MANAGER"
