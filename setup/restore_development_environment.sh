@@ -72,7 +72,7 @@ run_repos() {
 run_build() {
   local root
   root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
-  "$root/workspace/build_workspace.sh" --workspace "$WORKSPACE"
+  bash "$root/workspace/build_workspace.sh" --workspace "$WORKSPACE"
 }
 
 case "$STAGE" in
